@@ -1,18 +1,36 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
-// TODO: When a user is on a specific page, permanently change the link's background color to black (instead of only change when hover over it)
 const NavBar = () => {
+	const { pathname } = useLocation();
+
 	return (
 		<nav>
 			<ul>
 				<li>
-					<Link to="/">Home</Link>
+					<Link
+						className={pathname === "/" ? "currentPage" : ""}
+						to="/"
+					>
+						Home
+					</Link>
 				</li>
 				<li>
-					<Link to="/about">About</Link>
+					<Link
+						className={pathname === "/about" ? "currentPage" : ""}
+						to="/about"
+					>
+						About
+					</Link>
 				</li>
 				<li>
-					<Link to="/articles">Articles</Link>
+					<Link
+						className={
+							pathname === "/articles" ? "currentPage" : ""
+						}
+						to="/articles"
+					>
+						Articles
+					</Link>
 				</li>
 			</ul>
 		</nav>
