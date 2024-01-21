@@ -13,7 +13,7 @@ const ArticlePage = () => {
 	});
 	const { articleId } = useParams();
 
-	// Use the useEffect() hook to synchronize the the ArticlePage component's state with the server data.
+	// Use the useEffect() hook to synchronize the the ArticlePage component's state with the server data when first loading the page or articleId changes.
 	useEffect(() => {
 		const loadArticleInfo = async () => {
 			const response = await axios.get(`/api/articles/${articleId}`);
@@ -25,33 +25,35 @@ const ArticlePage = () => {
 
 	const article = articles.find((article) => article.name === articleId);
 
+	// Update the upvotes from the server
+	const addUpvote = async () => {
+		const response = await axios.put(`/api/articles/${articleId}/upvote`);
+		const updatedArticle = response.data;
+		setArticleInfo(updatedArticle);
+	};
+
 	if (!article) {
 		return <NotFoundPage />;
 	}
 	return (
 		<>
 			<h1>{article.title}</h1>
-			<p className="upvotes">
-				This article has <b>{articleInfo.upvotes}</b> upvote(s).
-			</p>
+			<div className="upvotes-section">
+				<button onClick={addUpvote}>Upvote</button>
+				<p className="upvotes">
+					This article has <b>{articleInfo.upvotes}</b> upvote(s).
+				</p>
+			</div>
+
 			{article.content.map((paragraph, i) => (
 				<p key={i}>{paragraph}</p>
 			))}
 
 			<h2>Comments:</h2>
-			{/* {articleinfo.comments?.map((comment) => (
-				<div
-					classname="comment"
-					key={comment.postedby + ": " + comment.text}
-				>
-					<h4>{comment.postedby}</h4>
-					<p>{comment.text}</p>
-				</div>
-			))} */}
 			<CommentsList comments={articleInfo.comments} />
 
 			{/* todo: put otherarticles to the right of the article content */}
-			<h2>check out my other articles:</h2>
+			<h2>Check out my other articles:</h2>
 			<OtherArticles currentArticle={article} />
 		</>
 	);
