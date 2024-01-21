@@ -12,10 +12,10 @@ button {
 	border-radius: 8px;
 	cursor: pointer;
 }
-h1 {
-	text-align: center;
-	/* background-color: red; */
-}
+/* h1 { */
+/* text-align: center; */
+/* background-color: red; */
+/* } */
 
 h3,
 h4 {
@@ -58,9 +58,14 @@ nav a:hover {
 	color: white;
 }
 
+a.currentPage {
+	background-color: black;
+	color: white;
+}
+
 #page-body {
 	max-width: 700px;
-	/* margin: auto; */
+	margin: auto;
 	margin: 0 auto;
 	padding-top: 72px;
 }
@@ -78,11 +83,31 @@ nav a:hover {
 	/* background-color: red; */
 }
 
+.otherarticle-list-item {
+	text-decoration: none;
+	color: black;
+	padding: 16px 0 0 0;
+}
+
+.otherarticle-list-item p {
+	/* background-color: red; */
+	padding: 0;
+	margin: 0;
+}
+
 .article-list-item-wrapper {
+	/* background-color: pink; */
+	border: 1px solid black;
+	padding: 16px;
+	padding-top: 0;
+	margin: 16px 0;
+}
+
+.article-list-item-text-wrapper {
 	/* background-color: lightgreen; */
-	padding: 16px 32px;
-	margin: 32px;
-	width: 100%;
+	/* padding: 16px 32px; */
+	/* margin: 32px; */
+	/* width: 100%; */
 }
 
 .article-list-item-wrapper:hover {
@@ -94,9 +119,6 @@ nav a:hover {
 		color: white;
 		border-bottom: 2px solid white;
 	}
-	/* .article-list-item p {
-		border-bottom: 2px solid white;
-	} */
 }
 
 #add-comment-form {
@@ -128,6 +150,11 @@ textarea {
 
 #add-comment-form button {
 	width: 320px;
+}
+
+.upvotes {
+	font-style: italic;
+	/* color: red; */
 }
 
 #upvotes-section button,
