@@ -5,6 +5,7 @@ import NotFoundPage from "./NotFoundPage";
 import OtherArticles from "../components/OtherArticles";
 import articles from "./article-content";
 import CommentsList from "../components/CommentsList";
+import AddCommentForms from "../components/AddCommentForms";
 
 const ArticlePage = () => {
 	const [articleInfo, setArticleInfo] = useState({
@@ -48,6 +49,13 @@ const ArticlePage = () => {
 			{article.content.map((paragraph, i) => (
 				<p key={i}>{paragraph}</p>
 			))}
+
+			<AddCommentForms
+				articleName={articleId}
+				onArticleUpdated={(updatedArticle) =>
+					setArticleInfo(updatedArticle)
+				}
+			/>
 
 			<h2>Comments:</h2>
 			<CommentsList comments={articleInfo.comments} />
