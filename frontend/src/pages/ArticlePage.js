@@ -6,6 +6,7 @@ import OtherArticles from "../components/OtherArticles";
 import articles from "./article-content";
 import CommentsList from "../components/CommentsList";
 import AddCommentForms from "../components/AddCommentForms";
+import useUser from "../hooks/useUser";
 
 const ArticlePage = () => {
 	const [articleInfo, setArticleInfo] = useState({
@@ -13,6 +14,8 @@ const ArticlePage = () => {
 		comments: [],
 	});
 	const { articleId } = useParams();
+
+	const { user, isLoading } = useUser();
 
 	// Use the useEffect() hook to synchronize the the ArticlePage component's state with the server data when first loading the page or articleId changes.
 	useEffect(() => {
@@ -40,26 +43,30 @@ const ArticlePage = () => {
 		<>
 			<h1>{article.title}</h1>
 			<div className="upvotes-section">
-				<button onClick={addUpvote}>Upvote</button>
+				{user ? (
+					<button onClick={addUpvote}>Upvote</button>
+				) : (
+					<button>Log in to upvote</button>
+				)}
 				<p className="upvotes">
 					This article has <b>{articleInfo.upvotes}</b> upvote(s).
 				</p>
 			</div>
-
 			{article.content.map((paragraph, i) => (
 				<p key={i}>{paragraph}</p>
 			))}
-
-			<AddCommentForms
-				articleName={articleId}
-				onArticleUpdated={(updatedArticle) =>
-					setArticleInfo(updatedArticle)
-				}
-			/>
-
-			<h2>Comments:</h2>
+			{user ? (
+				<AddCommentForms
+					articleName={articleId}
+					onArticleUpdated={(updatedArticle) =>
+						setArticleInfo(updatedArticle)
+					}
+				/>
+			) : (
+				<button> Log in to add a comment </button>
+			)}
+			<h2>Comments</h2>
 			<CommentsList comments={articleInfo.comments} />
-
 			{/* todo: put otherarticles to the right of the article content */}
 			<h2>Check out my other articles:</h2>
 			<OtherArticles currentArticle={article} />

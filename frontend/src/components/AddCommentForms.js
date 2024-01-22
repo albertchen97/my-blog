@@ -25,7 +25,10 @@ const AddCommentForms = ({ articleName, onArticleUpdated }) => {
 			<label>
 				Name:
 				<input
+					// Two-Way Binding
+					// Binds input value to the "name" state
 					value={name}
+					// Binds the "name" state to the current input value
 					onChange={(e) => setName(e.target.value)}
 					type="text"
 				/>
@@ -33,7 +36,10 @@ const AddCommentForms = ({ articleName, onArticleUpdated }) => {
 			<label>
 				Comment:
 				<textarea
+					// Two-Way Binding
+					// Binds value to the "commentText" state
 					value={commentText}
+					// Binds "commentText" state to the value in the text area
 					onChange={(e) => setCommentText(e.target.value)}
 					rows="4"
 					cols="50"
