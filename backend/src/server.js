@@ -1,7 +1,11 @@
 import fs from "fs";
+import path from "path";
 import admin from "firebase-admin";
 import express from "express";
+// Allow Node.js "process.env" to read the environment variables in the ".env" file
+import "dotenv/config";
 import { db, connectToDb } from "./db.js";
+import { fileURLToPath } from "url";
 
 const credentials = JSON.parse(fs.readFileSync("./credentials.json"));
 admin.initializeApp({
@@ -9,12 +13,22 @@ admin.initializeApp({
 });
 
 const app = express();
-const port = 8000;
+
 app.use(express.json());
 
+// Use Express to serve the static files in the front-end build folder
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+app.use(express.static(path.join(__dirname, "../build")));
+
+// All routes that don't start with "/api" go to the React app front-end
+app.get(/^(?!\/api).+/, (req, res) => {
+	res.sendFile(path.join(__dirname, "../build/index.html"));
+});
+
 // Identity and Access Management (IAM)
-// User Authentication (Identity): Verify the user logged in on the front-end is a valid user
-// User Authorization (Access): Allow the authenticated user to upvote and comment and article but can only upvote once
+// - User Authentication (Identity): Verify the user logged in on the front-end is a valid user
+// - User Authorization (Access): Allow the authenticated user to upvote and comment and article but can only upvote once
 
 // Use an Express middleware to get the user credentials from the front end via HTTP and authenticate the user
 app.use(async (req, res, next) => {
@@ -146,9 +160,11 @@ app.post("/api/articles/:name/comments", async (req, res) => {
 	}
 });
 
+// Get the port number from the environment variables of the production environment (or use the default port 8000 for development environment)
+const PORT = process.env.PORT || 8000;
 connectToDb(() => {
 	console.log("Successfully connected to database!");
-	app.listen(port, () => {
-		console.log(`Server is listening on port ${port}`);
+	app.listen(PORT, () => {
+		console.log(`Server is listening on port ${PORT}`);
 	});
 });

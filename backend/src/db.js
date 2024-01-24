@@ -1,15 +1,19 @@
 import { MongoClient } from "mongodb";
+// import "dotenv/config";
 let db;
+const username = encodeURIComponent(process.env.MONGO_USERNAME);
+const password = encodeURIComponent(process.env.MONGO_PASSWORD);
+let uri = `mongodb+srv://node-server:${password}@cluster0.h2w99ak.mongodb.net/?retryWrites=true&w=majority`;
 
-async function connectToDb(cb) {
+async function connectToDb(callback) {
 	// Connect Mongo client to the MongoDB server
-	const client = new MongoClient("mongodb://127.0.0.1:27017");
+	const client = new MongoClient(uri);
 	await client.connect();
 
 	// Load the 'react-blog-db' database from MongoDB
 	db = client.db("react-blog-db");
 
-	cb();
+	callback();
 }
 
 export { db, connectToDb };

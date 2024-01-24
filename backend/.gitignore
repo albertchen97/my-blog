@@ -1,4 +1,11 @@
 /node_modules
 /data
+
 # Firebase Admin Private Key
 credentials.json
+
+# React Frontend Production Folder
+/build
+
+# MongoDB databse user in the MongoBD Atlas cluster
+.env

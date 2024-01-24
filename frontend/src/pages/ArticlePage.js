@@ -36,7 +36,8 @@ const ArticlePage = () => {
 			setArticleInfo(newArticleInfo);
 		};
 
-		if (isLoading) {
+		// ? If the user is loaded (signed in), load the article info
+		if (!isLoading) {
 			loadArticleInfo();
 		}
 	}, [articleId, isLoading, user]);
