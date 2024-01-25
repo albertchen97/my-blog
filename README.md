@@ -6,7 +6,8 @@ This is a full-stack blog website that allows users to *sign up, log in, view, u
 
 ## Demo
 
-![demo](\demo/my_blog_demo-2x_zoomed.gif)
+<!-- ![demo](demo/my_blog_demo-2x_zoomed.gif) -->
+ <img src="demo/my_blog_demo-2x_zoomed.gif" alt="demo" width="80%">
 
 (**GIF Tool**: [ScreenToGif](https://github.com/NickeManarin/ScreenToGif))
 
