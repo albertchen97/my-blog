@@ -2,7 +2,10 @@ body {
 	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 	font-size: 18px;
 }
-
+body {
+	background-color: black;
+	color: white;
+}
 button {
 	padding: 16px;
 	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
@@ -172,4 +175,11 @@ p {
 	position: absolute;
 	top: 8px;
 	right: 8px;
+}
+
+@media screen and (prefers-color-scheme: light) {
+	body {
+		background-color: white;
+		color: black;
+	}
 }

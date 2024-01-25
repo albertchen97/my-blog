@@ -1,11 +1,15 @@
-/node_modules
-/data
+node_modules/
+data/
 
 # Firebase Admin Private Key
 credentials.json
 
 # React Frontend Production Folder
-/build
+build/
 
-# MongoDB databse user in the MongoBD Atlas cluster
+# Development environment variables for username and password for MongoDB databse user in the MongoBD Atlas cluster
 .env
+
+# Configuration and production environment variables for production environment
+app.yaml
+prod-env.yaml
