@@ -2,7 +2,7 @@
 
 ## Description
 
-This is a full-stack blog website that allows users to *sign up, log in, view, upvote, add comments* to the blog articles.
+This website is a full-stack blogging platform that enables users to create accounts, log in, view articles, upvote them, and add comments.
 
 ## Demo
 
