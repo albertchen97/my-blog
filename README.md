@@ -1,6 +1,6 @@
-# 📜 My Blog
+# My Blog
 
-## Description
+## 📄 Description
 
 A full-stack blog website that allows users to create accounts, log in, view articles, upvote them, and add comments!
 
