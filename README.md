@@ -9,7 +9,7 @@ A full-stack blog website that allows users to create accounts, log in, view art
 <!-- ![demo](demo/my_blog_demo-2x_zoomed.gif) -->
  <img src="demo/my_blog_demo-2x_zoomed.gif" alt="demo" width="80%">
 
-(GIF made with this amazing open-source GIF Tool: [ScreenToGif](https://github.com/NickeManarin/ScreenToGif))
+(GIF made with this amazing open-source GIF tool: [ScreenToGif](https://github.com/NickeManarin/ScreenToGif))
 
 ## 👩‍💻 Tech Stack
 
