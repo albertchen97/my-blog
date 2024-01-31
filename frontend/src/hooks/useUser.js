@@ -8,12 +8,12 @@ const useUser = () => {
 
 	useEffect(() => {
 		// "unsubscribe" is used to unsubscribe the user sign-in state changes from the Firebase to prevent data leak.
-		const unsubscribe = onAuthStateChanged(getAuth(), (user) => {
-			setUser(user);
+		const unsubscribe = onAuthStateChanged(getAuth(), (userAccount) => {
+			setUser(userAccount);
 			setIsLoading(false);
 		});
 
-		// When the user that is using this hook ("useUser") navigate away from the page, React will call the unsubscribe function.
+		// When the user that is using this hook ("useUser") navigates away from the page, React will call the unsubscribe function.
 		return unsubscribe;
 	}, []);
 
