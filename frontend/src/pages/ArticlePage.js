@@ -23,6 +23,7 @@ const ArticlePage = () => {
 	useEffect(() => {
 		const loadArticleInfo = async () => {
 			// If "user" exists (i.e., logged in), get the user token
+			// getIdToken() returns a JSON Web Token (JWT) used to identify the user to a Firebase service.
 			const token = user && (await user.getIdToken());
 			const headers = token ? { authtoken: token } : {};
 
