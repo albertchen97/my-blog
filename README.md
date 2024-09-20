@@ -18,4 +18,10 @@ A full-stack blog website that allows users to create accounts, log in, view art
 - **Database**: MongoDB
 - **HTTP Client**: Axios
 - **Authentication**: Firebase Authentication
-- **Hosting**: Google Cloud Platform
+- **Hosting**: Google App Engine (not anymore because of the cost)
+
+## Todo
+
+- [ ] Website Hosting: Find a free/cheap website hosting service that works in  (GitHub Page?)
+- [ ] Database: Set up MongoDB (see if MongoDB Atlas Cloud free tier is available)
+- [ ] UI: Make it look better
