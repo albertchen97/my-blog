@@ -7,6 +7,8 @@ import "dotenv/config";
 import { db, connectToDb } from "./db.js";
 import { fileURLToPath } from "url";
 
+// Get the Firebase service account key from the local file ("./credentials.json")
+// TODO: Get the credentials (Firebase Service Account Key) from Firebase
 const credentials = JSON.parse(fs.readFileSync("./credentials.json"));
 admin.initializeApp({
 	credential: admin.credential.cert(credentials),
@@ -16,12 +18,13 @@ const app = express();
 
 app.use(express.json());
 
-// Use Express to serve the static files in the front-end build folder
+// Use Express to serve the static files in the front-end build folder (build command: `npm run build`)
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 app.use(express.static(path.join(__dirname, "../build")));
 
-// All routes that don't start with "/api" go to the React app front-end
+// All routes that don't start with "/api" go to the React app front-end.
+// `?!` is a negative lookahead assertion that ensures "/api" does not occur at the current position of the string.
 app.get(/^(?!\/api).+/, (req, res) => {
 	res.sendFile(path.join(__dirname, "../build/index.html"));
 });
