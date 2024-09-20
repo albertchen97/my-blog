@@ -1,4 +1,6 @@
 import ArticleList from "../components/ArticlesList";
+
+// TODO: Fetch the articles from the database instead
 import articles from "./article-content";
 
 const ArticleListPage = () => {

@@ -177,9 +177,9 @@ p {
 	right: 8px;
 }
 
-@media screen and (prefers-color-scheme: light) {
+/* @media screen and (prefers-color-scheme: light) {
 	body {
 		background-color: white;
 		color: black;
 	}
-}
+} */

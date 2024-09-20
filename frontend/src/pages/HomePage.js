@@ -1,7 +1,7 @@
 const HomePage = () => (
 	<>
-		<h1>Hello, welcome to my blog!</h1>
-		<p>
+		<h1>Hi, I'm Albert. Welcome To My Blog!</h1>
+		{/* <p>
 			Welcome to my blog! Proin congue ligula id risus posuere, vel
 			eleifend ex egestas. Sed in turpis leo. Aliquam malesuada in massa
 			tincidunt egestas. Nam consectetur varius turpis, non porta arcu
@@ -26,7 +26,7 @@ const HomePage = () => (
 			vehicula, nulla eu tempor interdum, nibh elit congue tellus, ac
 			vulputate urna lorem nec nisi. Morbi id consequat quam. Vivamus
 			accumsan dui in facilisis aliquet.,
-		</p>
+		</p> */}
 	</>
 );
 
