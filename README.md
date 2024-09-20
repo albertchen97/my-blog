@@ -20,7 +20,7 @@ A full-stack blog website that allows users to create accounts, log in, view art
 - **Authentication**: Firebase Authentication
 - **Hosting**: Google App Engine (not anymore because of the cost)
 
-## Todo
+## Todo (for v0.2)
 
 - [ ] Website Hosting: Find a free/cheap website hosting service that works in  (GitHub Page?)
 - [ ] Database: Set up MongoDB (see if MongoDB Atlas Cloud free tier is available)
