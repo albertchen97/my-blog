@@ -7,11 +7,10 @@ import "dotenv/config";
 import { db, connectToDb } from "./db.js";
 import { fileURLToPath } from "url";
 
-// Get the Firebase service account key from the local file ("./credentials.json")
-// TODO: Get the credentials (Firebase Service Account Key) from Firebase
-const credentials = JSON.parse(fs.readFileSync("./credentials.json"));
+// Get the Firebase Service Account Key from Firebase
+const firebaseServiceAccountKey = JSON.parse(fs.readFileSync("./firebaseServiceAccountKey.json"));
 admin.initializeApp({
-	credential: admin.credential.cert(credentials),
+	credential: admin.credential.cert(firebaseServiceAccountKey),
 });
 
 const app = express();
